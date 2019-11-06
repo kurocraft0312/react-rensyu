@@ -20,11 +20,18 @@
                         // コンポーネントが内部的に保持している値なので、デベロッパーツールでも見ることは不可能。
                         count: 0,
                     };
+                    // countUpを括弧なしで使うとエラーになる
+                    this.countUp = this.countUp.bind(this);
                 }
                 countUp() {
                     // this.stateに値をセットできるのはconstructor内にのみ限られるので、この書き方では処理ができない。
-                    this.state.count = this.state.count + 1;
-
+                    // this.state.count = this.state.count + 1;
+                    // ただしsetStateの処理するタイミングは、Reactに一任されるため、この書き方では上手くカウントアップできない場合があります。
+                    this.setState(prevState => {
+                        return {
+                            count: prevState.count + 1
+                        };
+                    });
                 }
                 render() {
                     return (
