@@ -18,13 +18,17 @@
                     super(props);
                     this.state = {
                         // コンポーネントが内部的に保持している値なので、デベロッパーツールでも見ることは不可能。
-                        count: 10,
-                        message: 'hello!'
+                        count: 0,
                     };
+                }
+                countUp() {
+                    // this.stateに値をセットできるのはconstructor内にのみ限られるので、この書き方では処理ができない。
+                    this.state.count = this.state.count + 1;
+
                 }
                 render() {
                     return (
-                        <li style={{backgroundColor:this.props.color}}>
+                        <li style={{backgroundColor:this.props.color}} onClick={this.countUp}>
                             {this.state.count}
                         </li>
                     );
