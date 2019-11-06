@@ -10,8 +10,12 @@
     <div id="root"></div>
     <script type="text/babel">
         (() => {
+
+            const name = 'taguchi';
             ReactDOM.render(
-            <p>Hello world!</p>,
+            // 大文字に変換して表示するよう指定
+            <p>Hello world! {name.toUpperCase()}</p>,
+            // 表示したい要素を括弧内に指定している
             document.getElementById('root')
             );
         })();
