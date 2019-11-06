@@ -42,18 +42,27 @@
                 }
             }
 
+            class App extends React.Component {
+                constructor() {
+                    // 必ず親クラスのコンストラクタを呼ばなければならないため、super();とする。
+                    super();
+                }
+                render() {
+                    return (
+                        <div className="container">
+                        <ul>
+                            <Counter color="tomato"/>
+                            <Counter color="skyblue"/>
+                            <Counter color="limegreen"/>
+                        </ul>
+                        <div>TOTAL INVENTORY: 3</div>
+                        </div>
+                    );
+                }
+            }
+
             ReactDOM.render(
-            // コンポーネントは1文字を大文字に閉じタグで定義する
-            // <Counter/>,
-            // コンポーネント間ではカンマ区切りする必要なし
-            // コンポーネントに内容を少しだけ変えたい場合は、属性を後付けすること
-            <div className="container">
-            <ul>
-                <Counter color="tomato"/>
-                <Counter color="skyblue"/>
-                <Counter color="limegreen"/>
-            </ul>
-            </div>,
+            <App/>,
             // 表示したい要素を括弧内に指定している
             document.getElementById('root')
             );
