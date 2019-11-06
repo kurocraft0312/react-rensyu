@@ -18,7 +18,16 @@
             // コンポーネントの属性の値を受け取るにはpropsなどで引数を当て込めばOK
             // またこちらのプロパティは読み取り専用なので、後付けでプロパティなどを渡してもエラーになってしまう
             function Counter(props) {
-                return <li style={{backgroundColor:props.color}}>0</li>;
+
+                function countUp() {
+                    alert('count up!');
+                }
+
+                return (
+                    <li style={{backgroundColor:props.color}} onClick={countUp}>
+                    0
+                    </li>
+                );
             }
 
             ReactDOM.render(
