@@ -25,9 +25,10 @@
                     alert(color);
                 }
 
+                // アロー関数で引数が一つの場合はcountUp内にあるeのカッコは省略できる
                 return (
                     <li style={{backgroundColor:props.color}}>
-                        <a href="#" onClick={(e) => countUp(e, props.color)}>
+                        <a href="#" onClick={e => countUp(e, props.color)}>
                             0
                         </a>
                     </li>
