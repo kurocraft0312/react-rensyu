@@ -8,9 +8,32 @@ https://www.plusdesign.co.jp/blog/?p=5152
 */
 body {
     font-size: 62.5%;
+    font-family: Verdana, sans-serif;
 }
 .box {
     width: 100px;
     height: 100px;
     background-color: skyblue;
+}
+.container {
+    width: 330px;
+    margin: 20px auto;
+}
+.container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;/*要素が増えてきた時に折り返す*/
+}
+.container li {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;/*中身のテキストを選択できないようにする(青くならない仕様にできる)*/
+    border-radius: 5px;
+    margin: 0 5px 10px;
+
 }
