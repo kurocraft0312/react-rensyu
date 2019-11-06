@@ -14,7 +14,9 @@
             
             ReactDOM.render(
             // 新しいJSでは、classは予約語なので、classNameというキャメルケース記法で記述しなければなりません。
-            <div className="box"></div>,
+            // <div className="box"></div>,
+            // style属性はオブジェクト形式で渡す必要がある。そのあとにプロパティを書いていくわけだが、pxは省略できて、あとはclass属性はキャメルケースで書く必要があるため、background-colorはbackgroundColorのように書く。　
+            <div style={{ width:100, height:100,backgroundColor:'tomato' }}></div>,
             // 表示したい要素を括弧内に指定している
             document.getElementById('root')
             );
