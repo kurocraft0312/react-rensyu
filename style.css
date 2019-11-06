@@ -9,3 +9,8 @@ https://www.plusdesign.co.jp/blog/?p=5152
 body {
     font-size: 62.5%;
 }
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+}
