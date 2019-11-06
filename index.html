@@ -12,11 +12,20 @@
     <script type="text/babel">
         (() => {
             // プロパティはthisをつける必要がある　classに書き換えるとstateという仕組みが使えるようになります。
+            // stateはUIの書き換えに必要となるComponentの状態を保持するためのデータと思っておけばOKです。
             class Counter extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        // コンポーネントが内部的に保持している値なので、デベロッパーツールでも見ることは不可能。
+                        count: 10,
+                        message: 'hello!'
+                    };
+                }
                 render() {
                     return (
                         <li style={{backgroundColor:this.props.color}}>
-                            0
+                            {this.state.count}
                         </li>
                     );
                 }
