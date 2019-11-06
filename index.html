@@ -16,7 +16,9 @@
             //     return <div>0</div>;
             // }
             // コンポーネントの属性の値を受け取るにはpropsなどで引数を当て込めばOK
+            // またこちらのプロパティは読み取り専用なので、後付けでプロパティなどを渡してもエラーになってしまう
             function Counter(props) {
+                props.color = 'red'
                 return <div>0{props.color}</div>;
             }
 
