@@ -11,11 +11,15 @@
     <div id="root"></div>
     <script type="text/babel">
         (() => {
-
-            // コンポーネントの属性の値を受け取るにはpropsなどで引数を当て込めばOK
-            // またこちらのプロパティは読み取り専用なので、後付けでプロパティなどを渡してもエラーになってしまう
-            function Counter(props) {
-                return <li style={{backgroundColor:props.color}}>0</li>;
+            // プロパティはthisをつける必要がある
+            class Counter extends React.Component {
+                render() {
+                    return (
+                        <li style={{backgroundColor:this.props.color}}>
+                            0
+                        </li>
+                    );
+                }
             }
 
             ReactDOM.render(
