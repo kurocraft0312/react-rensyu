@@ -18,11 +18,12 @@
             // p要素を複数指定するとエラーになる
             // <p>Hello</p><p>world!</p>,
             // divや配列で囲って使えば、エラーは消える
-            <div>
-                <p>Hello</p>
-                <hr/>
-                <p>world!</p>
-            </div>,
+            // JSX記法では、閉じタグを入れなければエラーになる模様
+            // <div>
+            //     <p>Hello</p>
+            //     <hr/>
+            //     <p>world!</p>
+            // </div>,
             // 表示したい要素を括弧内に指定している
             document.getElementById('root')
             );
