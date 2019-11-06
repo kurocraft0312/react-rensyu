@@ -18,8 +18,7 @@
             // コンポーネントの属性の値を受け取るにはpropsなどで引数を当て込めばOK
             // またこちらのプロパティは読み取り専用なので、後付けでプロパティなどを渡してもエラーになってしまう
             function Counter(props) {
-                props.color = 'red'
-                return <div>0{props.color}</div>;
+                return <li style={{backgroundColor:props.color}}>0</li>;
             }
 
             ReactDOM.render(
@@ -27,10 +26,12 @@
             // <Counter/>,
             // コンポーネント間ではカンマ区切りする必要なし
             // コンポーネントに内容を少しだけ変えたい場合は、属性を後付けすること
-            <div>
+            <div className="container">
+            <ul>
                 <Counter color="tomato"/>
                 <Counter color="skyblue"/>
                 <Counter color="limegreen"/>
+            </ul>
             </div>,
             // 表示したい要素を括弧内に指定している
             document.getElementById('root')
