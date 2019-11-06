@@ -12,7 +12,19 @@
     <script type="text/babel">
         (() => {
             
+            function Counter() {
+                return <div>0</div>;
+            }
+
             ReactDOM.render(
+            // コンポーネントは1文字を大文字に閉じタグで定義する
+            // <Counter/>,
+            // コンポーネント間ではカンマ区切りする必要なし
+            <div>
+                <Counter/>
+                <Counter/>
+                <Counter/>
+            </div>,
             // 表示したい要素を括弧内に指定している
             document.getElementById('root')
             );
