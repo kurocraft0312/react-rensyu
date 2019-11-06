@@ -12,11 +12,16 @@
     <script type="text/babel">
         (() => {
             
+            function showMessage() {
+                alert('Hello');
+            }
+
             ReactDOM.render(
             // 新しいJSでは、classは予約語なので、classNameというキャメルケース記法で記述しなければなりません。
             // <div className="box"></div>,
-            // style属性はオブジェクト形式で渡す必要がある。そのあとにプロパティを書いていくわけだが、pxは省略できて、あとはclass属性はキャメルケースで書く必要があるため、background-colorはbackgroundColorのように書く。　
-            <div style={{ width:100, height:100,backgroundColor:'tomato' }}></div>,
+            // style属性はオブジェクト形式で渡す必要がある。そのあとにプロパティを書いていくわけだが、pxは省略できて、あとはclass属性はキャメルケースで書く必要があるため、background-colorはbackgroundColorのように書く。
+            ダブルクオーテーションと波括弧は同居できないので、波括弧だけを記すこと。　
+            <div style={{ width:100, height:100,backgroundColor:'tomato' }} onClick={showMessage}></div>,
             // 表示したい要素を括弧内に指定している
             document.getElementById('root')
             );
