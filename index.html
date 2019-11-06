@@ -11,28 +11,11 @@
     <div id="root"></div>
     <script type="text/babel">
         (() => {
-            
-            // function Counter() {
-            //     return <div>0</div>;
-            // }
+
             // コンポーネントの属性の値を受け取るにはpropsなどで引数を当て込めばOK
             // またこちらのプロパティは読み取り専用なので、後付けでプロパティなどを渡してもエラーになってしまう
             function Counter(props) {
-
-                function countUp(e,color) {
-                    // e(イベントオブジェクト)を受け取りつつ、preventDefaultとすることでaタグでもページ遷移しなくなる
-                    e.preventDefault();
-                    alert(color);
-                }
-
-                // アロー関数で引数が一つの場合はcountUp内にあるeのカッコは省略できる
-                return (
-                    <li style={{backgroundColor:props.color}}>
-                        <a href="#" onClick={e => countUp(e, props.color)}>
-                            0
-                        </a>
-                    </li>
-                );
+                return <li style={{backgroundColor:props.color}}>0</li>;
             }
 
             ReactDOM.render(
