@@ -11,49 +11,33 @@
     <div id="root"></div>
     <script type="text/babel">
         (() => {
-            // プロパティはthisをつける必要がある　classに書き換えるとstateという仕組みが使えるようになります。
-            // stateはUIの書き換えに必要となるComponentの状態を保持するためのデータと思っておけばOKです。
-            class Counter extends React.Component {
-                constructor(props) {
-                    super(props);
-                    this.state = {
-                        // コンポーネントが内部的に保持している値なので、デベロッパーツールでも見ることは不可能。
-                        count: 0,
-                    };
-                    // countUpを括弧なしで使うとエラーになる
-                    this.countUp = this.countUp.bind(this);
-                }
-                countUp() {
-                    // this.stateに値をセットできるのはconstructor内にのみ限られるので、この書き方では処理ができない。
-                    // this.state.count = this.state.count + 1;
-                    // ただしsetStateの処理するタイミングは、Reactに一任されるため、この書き方では上手くカウントアップできない場合があります。
-                    this.setState(prevState => {
-                        return {
-                            count: prevState.count + 1
-                        };
-                    });
-                }
-                render() {
-                    return (
-                        <li style={{backgroundColor:this.props.color}} onClick={this.countUp}>
-                            {this.state.count}
-                        </li>
-                    );
-                }
+            function Counter(props) {
+                return (
+                    <li style={{backgroundColor:props.counter.color}}>
+                        {props.counter.id}:{props.counter.count}
+                    </li>
+                );
             }
-
+            // Reactではstateをもつコンポーネントは最小限にしてあげて、その他のコンポーネントには極力値を持たせないという作法があるので、合わせて覚えておくこと。
             class App extends React.Component {
                 constructor() {
                     // 必ず親クラスのコンストラクタを呼ばなければならないため、super();とする。
                     super();
+                    this.state = {
+                        counters: [
+                            {id: 'A', count: 0, color: 'tomato'},
+                            {id: 'B', count: 0, color: 'skyblue'},
+                            {id: 'C', count: 0, color: 'limegreen'},
+                        ]
+                    };
                 }
                 render() {
                     return (
                         <div className="container">
                         <ul>
-                            <Counter color="tomato"/>
-                            <Counter color="skyblue"/>
-                            <Counter color="limegreen"/>
+                            <Counter counter={this.state.counters[0]}/>
+                            <Counter counter={this.state.counters[1]}/>
+                            <Counter counter={this.state.counters[2]}/>
                         </ul>
                         <div>TOTAL INVENTORY: 3</div>
                         </div>
