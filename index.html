@@ -15,8 +15,9 @@
             // function Counter() {
             //     return <div>0</div>;
             // }
-            function Counter() {
-                return <div>0</div>;
+            // コンポーネントの属性の値を受け取るにはpropsなどで引数を当て込めばOK
+            function Counter(props) {
+                return <div>0{props.color}</div>;
             }
 
             ReactDOM.render(
