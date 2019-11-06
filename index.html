@@ -19,12 +19,13 @@
             // またこちらのプロパティは読み取り専用なので、後付けでプロパティなどを渡してもエラーになってしまう
             function Counter(props) {
 
-                function countUp() {
-                    alert('count up!');
+                function countUp(color) {
+                    alert(color);
                 }
 
                 return (
-                    <li style={{backgroundColor:props.color}} onClick={countUp}>
+                    <li style={{backgroundColor:props.color}} onClick={() =>
+                    countUp(props.color)}>
                     0
                     </li>
                 );
